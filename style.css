@@ -1,0 +1,375 @@
+@font-face {
+  font-family: "digital-clock-font";
+  src: url(".//src/digital-7.ttf");
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("./src/background-image.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: sans-serif;
+  color: white;
+}
+
+form {
+  margin: 3rem 30%;
+}
+
+form fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: hsla(0, 0%, 100%, 0.3);
+}
+
+div.court-logs table {
+  border-spacing: 0;
+  width: 100%;
+}
+
+div.court-logs table td {
+  padding: 0.2rem 1rem;
+}
+
+div.court-logs table tr:nth-child(even) {
+  background-color: hsla(0, 0%, 100%, 0.3);
+}
+
+div.court-logs table tr:nth-child(odd) {
+  background-color: hsla(0, 0%, 100%, 0.1);
+}
+
+div.court-logs table tr:hover {
+  background-color: hsla(0, 0%, 100%, 0.6);
+}
+
+button {
+  width: 5rem;
+  height: 1.5rem;
+}
+
+header.app-header {
+  font-family: "digital-clock-font";
+  font-size: 40px;
+
+  padding: 0 20%;
+
+  margin-bottom: 30px;
+}
+
+header.app-header nav {
+  display: flex;
+  justify-content: space-around;
+
+  background-color: hsla(0, 0%, 10%, 0.5);
+  border: 1px solid hsla(0, 0%, 20%, 0.7);
+
+  padding: 10px;
+
+  border-radius: 10px;
+
+  transition: all 500ms;
+}
+
+header.app-header nav:hover {
+  background-color: rgba(10, 10, 10, 0.7);
+  border: 1px solid rgb(90, 10, 10);
+}
+
+header.app-header a,
+header.app-header a:visited {
+  text-decoration: none;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7),
+    -2px -2px 5px rgba(255, 255, 255, 0.7);
+  transition: all 500ms;
+  cursor: pointer;
+}
+
+header.app-header a:hover {
+  text-shadow: 2px 2px 5px red, -2px -2px 5px red;
+  color: hsl(0, 80%, 90%);
+}
+
+header.app-header .rout-selected {
+  color: red;
+  text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.7),
+    -2px -2px 5px rgba(255, 0, 0, 0.7);
+}
+
+@media (max-width: 1200px) {
+  header.app-header nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.player-section {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+
+  margin: 0 5%;
+  margin-bottom: 30px;
+}
+
+section.player-section .player-list {
+  flex: 1 1 0;
+  background-color: hsla(0, 0%, 100%, 0.3);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.player-list table {
+  width: 100%;
+  border-spacing: 0px;
+  text-align: center;
+}
+
+.player-list td {
+  padding: 1rem;
+}
+
+.player-list tr:hover {
+  background-color: hsla(0, 0%, 100%, 0.3);
+  cursor: pointer;
+}
+
+.player-list tr.player-tr--selected {
+  background-color: hsla(0, 0%, 100%, 0.05);
+  color: hsl(120, 80%, 90%);
+}
+
+section.player-section .player-card {
+  flex: 1 1 0;
+}
+
+.player-card {
+  background-color: hsla(0, 0%, 100%, 0.3);
+  border-radius: 10px;
+
+  display: flex;
+
+  text-align: center;
+
+  overflow: hidden;
+}
+
+.player-card__img-block {
+  flex: 1 1 10rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
+  /* overflow: hidden; */
+  min-width: 175px;
+}
+
+.player-card img {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.player-card img:nth-child(1) {
+  opacity: 0.4;
+}
+
+.player-card__name-block {
+  flex: 4 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+
+  overflow: hidden;
+
+  position: relative;
+
+  min-width: 175px;
+}
+
+@media (max-width: 1200px) {
+  .player-section {
+    flex-direction: column;
+  }
+
+  section.player-section .player-card,
+  section.player-section .player-list {
+    flex: auto;
+  }
+
+  div.court-taking {
+    flex-direction: column;
+  }
+
+  .court-container {
+    flex: auto;
+  }
+
+  .court-logs {
+    flex: auto;
+  }
+
+  .court-watching div:nth-child(1) {
+    flex-direction: column;
+    margin: 0 20%;
+  }
+
+  .team-section {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+.player-card__name {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.player-card__skewShadow {
+  background-color: hsla(0, 0%, 100%, 0.1);
+  transform: skew(30deg);
+  position: absolute;
+
+  width: 80%;
+  height: 100%;
+
+  box-shadow: 2px 0px 0px 2px hsla(0, 0%, 0%, 0.3),
+    -2px 0px 6px 6px hsla(0, 0%, 0%, 0.5);
+}
+
+.player-card__skewLight {
+  background-color: hsla(0, 0%, 100%, 0.1);
+
+  transform: skew(30deg);
+  position: absolute;
+
+  width: 60%;
+  height: 100%;
+
+  left: 20%;
+}
+
+.player-card__name div:nth-child(1) {
+  font-size: 1.5rem;
+}
+
+.player-card__name div:nth-child(2) {
+  font-size: 3rem;
+}
+
+.court-taking {
+  margin: 0 25%;
+
+  display: flex;
+  gap: 30px;
+}
+
+.court-container {
+  flex: 1 1 45%;
+}
+
+.court-logs {
+  flex: 1 1 45%;
+
+  background-color: hsla(0, 0%, 100%, 0.1);
+  border-radius: 10px;
+
+  list-style: none;
+}
+
+.court-watching {
+  margin: 0 5%;
+}
+
+.court-watching div:nth-child(1) {
+  display: flex;
+  gap: 30px;
+}
+
+path:hover {
+  fill: rgba(255, 255, 255, 0.7);
+  opacity: 0.9;
+}
+
+.team-section {
+  margin: 0 5%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.team-section__list-container {
+  background-color: hsla(0, 0%, 100%, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+
+  border: 2px solid black;
+}
+
+.team-section__list-container header {
+  font-size: 1.5rem;
+  text-align: center;
+  background-color: hsla(0, 0%, 0%, 0.8);
+
+  padding: 10px;
+}
+
+.team-section__list {
+  padding: 20px;
+  list-style: none;
+
+  position: relative;
+
+  min-height: 10rem;
+}
+
+.team-section__list li {
+  background-color: hsla(0, 0%, 0%, 0.7);
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5),
+    -2px -2px 5px rgba(255, 255, 255, 0.5);
+  text-align: center;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+
+  cursor: grab;
+
+  border: 2px solid black;
+}
+
+.team-section__list li:hover {
+  background-color: hsla(0, 0%, 0%, 0.8);
+}
+
+/* .team-section__list li.grabbing {
+  cursor: grabbing;
+} */
+
+.team-section img {
+  position: absolute;
+  opacity: 0.5;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
